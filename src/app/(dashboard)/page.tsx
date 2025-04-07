@@ -1,3 +1,6 @@
+import { Console } from "console";
+import { stderr, stdin } from "process";
+import { useEffect, useState } from "react";
 import {
   AverageTicketsCreated,
   Conversions,
@@ -6,8 +9,11 @@ import {
   TicketByChannels,
 } from "@/components/chart-blocks";
 import Container from "@/components/container";
+import { formatDate } from "../../../../shared/utils/utils";
 
 export default function Home() {
+  const myConsole = new Console(process.stdin, process.stderr);
+  myConsole.log(formatDate(new Date()));
   return (
     <div>
       <Metrics />
